@@ -5,6 +5,11 @@ namespace Game
     public class PlayerController : MonoBehaviour
     {
         private TranslateMover translateMover;
+        [SerializeField] private KeyCode upKey = KeyCode.W;
+        [SerializeField] private KeyCode downKey = KeyCode.S;
+        [SerializeField] private KeyCode rightKey = KeyCode.D;
+        [SerializeField] private KeyCode leftKey = KeyCode.A;
+
         void Awake()
         {
             translateMover = GetComponent<TranslateMover>();
@@ -19,19 +24,19 @@ namespace Game
         // Update is called once per frame
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(upKey))
             {
                 translateMover.Move(Vector3.up);
             }
-            if(Input.GetKeyDown(KeyCode.S))
+            if(Input.GetKeyDown(downKey))
             {
                 translateMover.Move(Vector3.down);
             }
-            if(Input.GetKeyDown(KeyCode.D))
+            if(Input.GetKeyDown(rightKey))
             {
                 translateMover.Move(Vector3.right);
             }
-            if(Input.GetKeyDown(KeyCode.A))
+            if(Input.GetKeyDown(leftKey))
             {
                 translateMover.Move(Vector3.left);
             }
